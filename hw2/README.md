@@ -1,10 +1,13 @@
 ## Как запустить
 
-Сборка: docker build . -f deploy/Dockerfile -t ping
-Запуск: docker run ping [-h host] [-v]
+Сборка: `docker build . -f deploy/Dockerfile -t ping`
 
-| -h | хост, который хотим пинговать |
-| -v | флаг, отвечающий за вывод логов |
+Запуск: `docker run ping [-h host] [-v]`
+
+| Флаг | Тип | По умолчанию | Описание |
+| --- | --- | --- | --- |
+| -h | String || хост, который хотим пинговать |
+| -v | Bool | false |если стоит, то выводит логи |
 
 ## Описание
 
