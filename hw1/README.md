@@ -7,3 +7,11 @@
 ![vpc2](images/vpc2.png)
 
 ![vpc1_ping](images/vpc1_ping.png)
+
+## spanning-tree
+
+![switch1](images/switch1.png)
+
+![switch2](images/switch2.png)
+
+![switch3](images/switch3.png)
