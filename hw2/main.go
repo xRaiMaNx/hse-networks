@@ -26,8 +26,8 @@ func tryPing(dest string, count int, v bool) (int, error) {
 }
 
 func main() {
-	host := flag.String("host", "", "destination for ping")
-	v := flag.Bool("verbose", false, "verbose log")
+	host := flag.String("h", "", "host (destination) for ping")
+	v := flag.Bool("v", false, "verbose log")
 	flag.Parse()
 
 	right := 1
@@ -53,6 +53,7 @@ func main() {
 		log.Printf("find the upper threshold: %v\n", right)
 	}
 
+	// find answer by bin search
 	for right > left+1 {
 		mid := (right + left) / 2
 		code, err = tryPing(*host, mid, *v)
