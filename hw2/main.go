@@ -30,7 +30,7 @@ func main() {
 	v := flag.Bool("v", false, "verbose log")
 	flag.Parse()
 
-	right := 1
+	right := 0
 
 	// check correctness of destination or other errors
 	code, err := tryPing(*host, right, *v)
@@ -40,10 +40,13 @@ func main() {
 
 	// find the upper threshold O(logN) where N - MTU
 	// default is 1500 bytes, but it can be bigger. For instance, fast Ethernet links
-	left := right // for optimizing future bin search
+	left := 0
 	for code == 0 {
 		left = right
 		right *= 2
+		if right == 0 {
+			right = 1
+		}
 		code, err = tryPing(*host, right, *v)
 		if code == 2 {
 			log.Fatalf("failed with code: %v\terror: %v", code, err)
